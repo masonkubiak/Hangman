@@ -19,15 +19,16 @@ function newGame() {
 
 function guessLetter() {
     var input = document.getElementById("guess");
+    var winOrLose = document.getElementById("message");
     var letter = input.value;
     //checks if current game is over, if not checks if word is not empty string and 
     //whether or not the current guess is in the word or has already been guessed
     if (isEnd == true) {
         winOrLose.innerHTML = "Please start a new game!";
-    } else if ((word !== "") && (guesses.indexOf(letter) < 0) && (guess_count > 0) && isEnd == false) {
+    } else if ((word !== "") && (guesses.indexOf(letter) < 0) && (guess_count > 0) && (isEnd == false)) {
         guesses += letter;
     }
-    if ((word.indexOf(letter) < 0) && (guess_count > 0) && (word !== "")) {
+    if ((word.indexOf(letter) < 0) && (guess_count > 0) && (word !== "") && (isEnd == false)) {
         guess_count--;
     }
     updatePage();
