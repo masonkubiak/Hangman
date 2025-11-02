@@ -28,7 +28,7 @@ function guessLetter() {
     } else if ((word !== "") && (guesses.indexOf(letter) < 0) && (guess_count > 0) && (isEnd == false)) {
         guesses += letter;
     }
-    if ((word.indexOf(letter) < 0) && (guess_count > 0) && (word !== "") && (isEnd == false)) {
+    if ((word.indexOf(letter) < 0) && (guess_count > 0) && (word !== "") && (isEnd == false) && (guesses.indexOf(letter) < 0)) {
         guess_count--;
     }
     updatePage();
