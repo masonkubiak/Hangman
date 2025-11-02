@@ -25,12 +25,18 @@ function guessLetter() {
     //whether or not the current guess is in the word or has already been guessed
     if (isEnd == true) {
         winOrLose.innerHTML = "Please start a new game!";
+    } else if ((guesses.indexOf(letter) >= 0) && (word !== "")) {
+        winOrLose.innerHTML = "You already guessed that letter.";
+    } else if ((word.indexOf(letter) < 0) && (guess_count > 0) && (word !== "") && (isEnd == false)) {
+        console.log("wrong");
+        winOrLose.innerHTML = "";
+        guesses += letter;
+        guess_count--;
     } else if ((word !== "") && (guesses.indexOf(letter) < 0) && (guess_count > 0) && (isEnd == false)) {
+        winOrLose.innerHTML = "";
         guesses += letter;
     }
-    if ((word.indexOf(letter) < 0) && (guess_count > 0) && (word !== "") && (isEnd == false) && (guesses.indexOf(letter) < 0)) {
-        guess_count--;
-    }
+
     updatePage();
     //clears the input text
     input.value = "";
